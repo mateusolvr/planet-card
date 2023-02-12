@@ -29,6 +29,13 @@ body {
   margin-bottom: 1.5em;
 }
 
+.remove-planet {
+  font-size: 1.15em;
+  border: none;
+  background-color: #EF5350;
+  cursor: pointer;
+}
+
 h2 {
   font-size: 2em;
   margin-bottom: 8px;

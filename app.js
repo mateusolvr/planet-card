@@ -94,8 +94,8 @@ const Planet = (props) => {
                 </li>
             </ul>
             <button
-                className="remove-player"
-                onClick={() => props.removePlayer(props.id)}
+                className="remove-planet"
+                onClick={() => props.removePlanet(props.id)}
             >
                 ✖
             </button>
@@ -108,17 +108,27 @@ class Container extends React.Component {
         planets: planets,
     };
 
+    handleRemovePlanet = (id) => {
+        this.setState((prevState) => {
+            return {
+                planets: prevState.planets.filter((p) => p.id !== id),
+            };
+        });
+    };
+
     render() {
         return (
             <div class="container">
                 {this.state.planets.map((planet) => (
                     <Planet
                         key={planet.id}
+                        id={planet.id}
                         name={planet.name}
                         diameter={planet.diameter}
                         moons={planet.moons}
                         desc={planet.desc}
                         url={planet.url}
+                        removePlanet={this.handleRemovePlanet}
                     />
                 ))}
             </div>
